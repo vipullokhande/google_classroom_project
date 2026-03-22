@@ -84,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
 
     return ScaffoldWidget(
+      backgroundColor: backgroundColor,
       key: globalKey,
       appBar: AppBar(
         backgroundColor: backgroundColor,

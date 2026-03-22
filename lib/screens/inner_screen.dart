@@ -8,7 +8,6 @@ import 'package:google_classroom_project/widgets/classwork_widget.dart';
 import 'package:google_classroom_project/widgets/custom_bottom_navigation_bar.dart';
 import 'package:google_classroom_project/widgets/inner_single_classroom.dart';
 import 'package:google_classroom_project/widgets/new_material_widget.dart';
-import 'package:google_classroom_project/widgets/scaffold_widget.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
@@ -65,7 +64,7 @@ class _InnerScreenState extends State<InnerScreen> {
         ? Colors.black
         : const Color.fromARGB(255, 238, 238, 238);
 
-    return ScaffoldWidget(
+    return Scaffold(
       appBar: AppBar(
         toolbarHeight: height * 0.085,
         elevation: 0,

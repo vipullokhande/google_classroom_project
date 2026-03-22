@@ -30,24 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
       debugShowCheckedModeBanner: false,
-      home: const Home(),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    bool isDark = Provider.of<DarkModeController>(context, listen: true).isDark;
-    return Consumer(
-      builder: (context, darkModeController, child) {
-        return Scaffold(
-          backgroundColor: isDark ? Colors.black : Colors.white,
-          body: const HomeScreen(),
-        );
-      },
+      home: const HomeScreen(),
     );
   }
 }

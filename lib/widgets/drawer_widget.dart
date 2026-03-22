@@ -192,13 +192,16 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     text: classRoomNames[i],
                     url: backgrounds[i],
                     color: colors[i],
-                    onPressed: () => Get.to(
-                      () => InnerScreen(
-                        title: classRoomNames[i],
-                        background: backgrounds[i],
-                        color: colors[i],
-                      ),
-                    ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      Get.to(
+                        () => InnerScreen(
+                          title: classRoomNames[i],
+                          background: backgrounds[i],
+                          color: colors[i],
+                        ),
+                      );
+                    },
                   ),
                 for (int i = 3; i < navTitles.length; i++)
                   Padding(

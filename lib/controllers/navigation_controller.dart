@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_classroom_project/screens/calendar_screen.dart';
 import 'package:google_classroom_project/screens/home_screen.dart';
+import 'package:google_classroom_project/screens/notifications_screen.dart';
 
 class NavigationController extends ChangeNotifier {
   int currNavIndex = 1;
@@ -16,7 +17,7 @@ class NavigationController extends ChangeNotifier {
         navigateAndReplace(context, CalendarScreen());
         break;
       case 3:
-        navigateAndReplace(context, Scaffold());
+        navigateAndReplace(context, NotificationsScreen());
         break;
       default:
         break;

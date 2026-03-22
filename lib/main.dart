@@ -10,13 +10,11 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        ListenableProvider<DarkModeController>(
+        ChangeNotifierProvider<DarkModeController>(
           create: (context) => DarkModeController(),
-          builder: (context, child) => child!,
         ),
-        ListenableProvider<NavigationController>(
+        ChangeNotifierProvider<NavigationController>(
           create: (context) => NavigationController(),
-          builder: (context, child) => child!,
         ),
       ],
       builder: (context, child) => const MyApp(),
@@ -30,9 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      scrollBehavior: const ScrollBehavior().copyWith(
-        overscroll: false,
-      ),
+      scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
       debugShowCheckedModeBanner: false,
       home: const Home(),
     );
@@ -40,7 +36,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {

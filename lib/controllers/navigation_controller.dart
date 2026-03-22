@@ -4,32 +4,29 @@ import 'package:google_classroom_project/screens/home_screen.dart';
 
 class NavigationController extends ChangeNotifier {
   int currNavIndex = 1;
-  changeNavIndex(
-    int newIndex,
-    BuildContext context,
-    GlobalKey<ScaffoldState> globalKey,
-  ) {
+  changeNavIndex(int newIndex, BuildContext context) {
     if (currNavIndex == newIndex) return;
     currNavIndex = newIndex;
-    globalKey.currentState!.closeDrawer();
+    notifyListeners();
     switch (currNavIndex) {
       case 1:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => const HomeScreen(),
-          ),
-        );
+        navigateAndReplace(context, HomeScreen());
         break;
       case 2:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => const CalendarScreen(),
-          ),
-        );
+        navigateAndReplace(context, CalendarScreen());
+        break;
+      case 3:
+        navigateAndReplace(context, Scaffold());
         break;
       default:
         break;
     }
-    notifyListeners();
+  }
+
+  navigateAndReplace(BuildContext context, Widget screen) {
+    Navigator.of(
+      context,
+      rootNavigator: true,
+    ).push(MaterialPageRoute(builder: (_) => screen));
   }
 }

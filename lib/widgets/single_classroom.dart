@@ -66,9 +66,7 @@ class _SingleClassroomWidgetState extends State<SingleClassroomWidget>
         height: 160,
         width: double.maxFinite,
         clipBehavior: Clip.antiAlias,
-        margin: const EdgeInsets.symmetric(
-          vertical: 6,
-        ),
+        margin: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(width: 0),
@@ -83,35 +81,30 @@ class _SingleClassroomWidgetState extends State<SingleClassroomWidget>
               fit: BoxFit.cover,
               loadingBuilder: (context, child, loadingProgress) =>
                   loadingProgress != null
-                      ? Container(
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                          ),
-                          child: Center(
-                            child: CircularProgressIndicator.adaptive(
-                              value: loadingProgress.cumulativeBytesLoaded
-                                  .toDouble(),
-                              backgroundColor: Colors.white,
-                              valueColor: _colorAnimation,
-                            ),
-                          ),
-                        )
-                      : child,
+                  ? Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(width: 1, color: Colors.black),
+                      ),
+                      child: Center(
+                        child: CircularProgressIndicator.adaptive(
+                          value: loadingProgress.cumulativeBytesLoaded
+                              .toDouble(),
+                          backgroundColor: Colors.white,
+                          valueColor: _colorAnimation,
+                        ),
+                      ),
+                    )
+                  : child,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.05,
-                    ),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.05),
                     Text(
                       widget.title,
                       style: const TextStyle(
@@ -135,9 +128,7 @@ class _SingleClassroomWidgetState extends State<SingleClassroomWidget>
                             value: Item.enroll,
                             child: Text(
                               'Enroll',
-                              style: TextStyle(
-                                color: foregroundColor,
-                              ),
+                              style: TextStyle(color: foregroundColor),
                             ),
                           ),
                         ];
@@ -157,9 +148,7 @@ class _SingleClassroomWidgetState extends State<SingleClassroomWidget>
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: height * 0.020,
-                ),
+                SizedBox(height: height * 0.020),
               ],
             ),
           ],
